@@ -153,8 +153,9 @@ export class ShareLinkManager {
    * Parse URL hash on page load. Returns parsed state or null.
    */
   parseInitialHash() {
-    const hash = window.location.hash.slice(1);
-    if (!hash) return null;
+    // Default home view when opened without a share link: Fort Myers, FL.
+    const hash =
+      window.location.hash.slice(1) || 'lat=26.6406&lon=-81.8723&alt=20000&pitch=-45';
 
     const params = new URLSearchParams(hash);
     const lat = parseFloat(params.get('lat'));
