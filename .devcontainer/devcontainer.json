@@ -1,0 +1,14 @@
+{
+  "name": "Gods Eye View",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:24",
+  "forwardPorts": [4173],
+  "portsAttributes": {
+    "4173": {
+      "label": "Gods Eye View globe",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "npm ci --no-audit --no-fund",
+  "postStartCommand": "bash -c 'pgrep -f [v]ite >/dev/null || (nohup npm run dev >/tmp/gev-dev.log 2>&1 &)'",
+  "remoteUser": "node"
+}
